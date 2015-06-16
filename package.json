@@ -1,0 +1,20 @@
+{
+  "name": "components",
+  "version": "1.0.0",
+  "description": "web components on a message bus",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.12.4",
+    "lodash": "^3.9.3"
+  },
+  "devDependencies": {
+    "express": "^4.12.4",
+    "lodash": "^3.9.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Jackson Westeen",
+  "license": "MIT"
+}

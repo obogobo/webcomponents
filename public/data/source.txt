@@ -1,0 +1,27 @@
+// http://www.beeradvocate.com/lists/top/
+
+var beers = Array.prototype.map.call($('td.hr_bottom_light[align="left"][valign="middle"]'), function (d) {
+    var data = Array.prototype.map.call(d.querySelectorAll('a'), function (e) {
+        return e.innerHTML.replace('<b>', '').replace('</b>', '')
+    });
+    var meta = new XMLSerializer().serializeToString(d);
+	
+    meta = meta.substring(meta.lastIndexOf('</a>')).substring('</a> / '.length).replace('</span></td>', '').replace(' ABV', '');
+    data.push(meta);
+	
+    return data;
+});
+
+
+beers = beers.map(function (beer, index) {
+    return {
+        Rank: (index + 1),
+        Brewery: beer[ 1 ],
+        Beer: beer[ 0 ],
+        Style: beer[ 2 ],
+        ABV: beer[ 3 ]
+    }
+});
+
+console.table(beers);
+copy(JSON.stringify(beers))

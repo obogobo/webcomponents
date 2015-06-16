@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Top 250 Beers</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <script src="js/vendor/lodash.js"></script>
+        <script src="js/vendor/postal.js"></script>
+        <script>
+            // eavesdrop on the message bus
+            postal.channel('search').subscribe('*', function (message, envelope) {
+                console.log(envelope);
+            });
+        </script>
+
+		<!-- register the web components -->
+		<script src="js/app/customElements.js"></script>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+                <!-- nx-search -->
+                <nx-search channel='search'></nx-search>
+
+            </div>
+            <div class="panel-body">
+
+                <!-- nx-table -->
+                <nx-table channel='search' url='http://localhost:1337/beers'></nx-table>
+                
+            </div>
+        </div>
+    </body>
+</html>
